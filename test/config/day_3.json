@@ -1,0 +1,70 @@
+{
+"source":
+	{
+	"format": "csv",
+	"format_options":
+		{
+		"separator": ",", 
+		"multiline": false, 
+		"withHeader": true, 
+		"writeHeader": false, 
+		"skipFirst": false		
+		},
+	"transformation_ctx": "",
+	"cols":
+		[
+		{"name": "DRG Definition", "type": "string"},
+		{"name": "Provider Id", "type": "string"},
+		{"name": "Provider Name", "type": "string"},
+		{"name": "Provider Street Address", "type": "string"},
+		{"name": "Provider City", "type": "string"},
+		{"name": "Provider State", "type": "string"},
+		{"name": "Provider Zip Code", "type": "string"},
+		{"name": "Hospital Referral Region (HRR) Description", "type": "string"},
+		{"name": "Total Discharges", "type": "string"},		
+		{"name": "Average Covered Charges", "type": "string"},	
+		{"name": "Average Total Payments", "type": "string"},
+		{"name": "Average Medicare Payments", "type": "string"}
+		]
+	},
+"target":
+	{
+	"cols":
+		[
+		{"name": "drg", "type": "string"},
+		{"name": "provider_id", "type": "long"},
+		{"name": "provider_name", "type": "string"},
+		{"name": "provider_street_address", "type": "string"},
+		{"name": "provider_city", "type": "string"},
+		{"name": "provider_state", "type": "string"},
+		{"name": "provider_zip", "type": "string"},
+		{"name": "rr", "type": "string"},
+		{"name": "total_discharges", "type": "long"},		
+		{"name": "charges_covered", "type": "double"},	
+		{"name": "charges_total_pay", "type": "double"},
+		{"name": "charges_medicare_pay", "type": "double"}
+		],		
+	"key_cols":
+		[
+			"drg",
+			"provider_id"
+		],
+	"non_key_cols":
+		[
+			"provider_name",
+			"provider_street_address",
+			"provider_city",
+			"provider_state",
+			"provider_zip",
+			"rr",
+			"total_discharges",
+			"charges_covered",
+			"charges_total_pay",
+			"charges_medicare_pay"
+		],
+	"destination_bucket": "avensolutions-glue",
+	"destination_path": "/test/data/target/medicare_provider/",
+	"mode": "overwrite",
+	"compression": "snappy"
+	}
+}
