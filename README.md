@@ -33,5 +33,5 @@ Dependencies
 cdc-in-aws-glue.py Usage
 --------------
 The `cdc-in-aws-glue.py` script is designed to be imported into AWS Glue and used as the custom script for an AWS Glue Job.  More information can be found at [Providing Your Own Custom Scripts to AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/console-custom-created.html). 
-Run the AWS Glue Job you created using the custom script (`cdc-in-aws-glue.py`) supplying runtime arguments of `['JOB_NAME','config_bucket','config_key','source_file','this_date','previous_date']`
+Run the AWS Glue Job you created using the custom script (`cdc-in-aws-glue.py`) supplying runtime arguments of: `['JOB_NAME','config_bucket','config_key','source_file','this_date','previous_date']`
 						   
