@@ -9,11 +9,11 @@ are written to a new Parquet formatted object with additional meta columns (conf
 
     keyhash, nonkeyhash, operation, eff_start_date, eff_end_date
     e.g.
-    .., 0L, 0L, 'I', '2018-08-01', None 
-    .., 0L, 0L, 'U', '2018-08-01', '2018-08-02' 
-    .., 0L, 0L, 'U', '2018-08-02', None 	
-    .., 0L, 0L, 'D', '2018-08-02', '2018-08-03' 	
-    .., 0L, 0L, 'X', '2018-08-01', None 	
+    .., 4501294689844871168, -404260490002337973, 'I', '2018-08-01', None 
+    .., 4501294689844871168, -404260490002337973, 'U', '2018-08-01', '2018-08-02' 
+    .., 4501294689844871168, 7110980960449481338, 'U', '2018-08-02', None 	
+    .., 4501294689844871168, 7110980960449481338, 'D', '2018-08-02', '2018-08-03' 	
+    .., 3454310847678873606, -4750952506199758578, 'X', '2018-08-01', None 	
     
 Current records are identified by `eff_end_date is null` or `eff_end_date is None` 
 
@@ -33,3 +33,5 @@ Dependencies
 cdc-in-aws-glue.py Usage
 --------------
     The cdc-in-aws-glue.py script is designed to be imported into AWS Glue and used as the custom script for an AWS Glue Job.  More information can be found at [Providing Your Own Custom Scripts to AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/console-custom-created.html).  
+	Run the AWS Glue Job you created using the custom script (`cdc-in-aws-glue.py`) supplying runtime arguments of `['JOB_NAME','config_bucket','config_key','source_file','this_date','previous_date']`
+						   
